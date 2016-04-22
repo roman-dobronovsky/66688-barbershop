@@ -1,7 +1,7 @@
 # Учебный проект «Барбершоп»
 
 * Студент: [Roman Dobronovsky](https://up.htmlacademy.ru/htmlcss/13/user/66688).
-
+* Наставник: [Владимир Меркулов](https://htmlacademy.ru/profile/straniks)ю
 ---
 
 _Не удаляйте и не обращайте внимание на файлы:_<br>
