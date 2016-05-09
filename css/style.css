@@ -1,874 +1,1368 @@
-body {
-  min-width: 960px;
-
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 24px;
-  font-family: "PT Sans Narrow", "Arial", sans-serif;
-  color: #ffffff;
-  text-transform: uppercase;
-
-  background: #000000 url("img/body-bg.jpg") no-repeat center top;
+﻿body {						/* Данные, общие для всей странички */
+	font-size: 14px;
+	line-height: 24px;
+	font-family: "PT Sans Narrow", sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+	min-width: 960px;
+	background: #111 url("../img/bg2.jpeg") no-repeat center top;
 }
 
-.inner-page {
-  color: #000000;
-
-  background: #f8f3f0 url("img/pattern-white.jpg") repeat;
+body.shop, body.item, body.inner_page {					/* Тело внутренних страниц */
+	background: #f8f5f2 url("../img/block_bg.jpeg") repeat center top;
+	color: #000;
 }
 
-.clearfix::after {
-  content: "";
-
-  display: table;
-  clear: both;
+.shop .main-footer, .item .main-footer, .inner_page .main-footer {		/* Футер внутренних страниц */
+	background: #252525 url("../img/footer_bg.jpeg");
+	color: #fff;
 }
 
-.container {
-  width: 940px;
-  margin: 0 auto;
-  padding: 0 10px;
+.container {         /* Общий контейнер шириной 940px */
+	width: 940px;
+	margin: 0 auto;
+	padding: 0 10px;
 }
 
-.main-header {
-  margin-bottom: 60px;
-
-  color: #ffffff;
-
-  background-color: #000000;
+.main-container {
+	margin: 45px auto;
+	margin-bottom: 84px;
+	padding: 0 10px;
 }
 
-.inner-page .main-header {
-  margin-bottom: 55px;
+.clearfix:after {    /* Класс CLEARFIX */
+	content: "";
+	display: table;
+	clear: both;
 }
 
-.main-navigation {
-  float: left;
-  width: 780px;
+/* Хедер ----------------------------------------------------------*/
+.main-header {          /* Хедер */
+	margin-top: 0px;
+	margin-bottom: 60px;
+	background: #000;
 }
 
-.main-navigation ul {
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
-  font-size: 0;
+.main-navigation {     /* Меню хедера */
+	float: left;
+	width: 810px;
 }
 
-.main-navigation li {
-  display: inline-block;
-
-  font-size: 16px;
-  line-height: 20px;
-  vertical-align: top;
+.user-block {          /* Пользовательский блок */
+	float: right;
+	max-width: 140px;
 }
 
-.main-navigation a {
-  display: block;
-  padding: 25px 20px;
-
-  color: #ffffff;
-  text-decoration: none;
+.main-navigation ul {   /* Список меню хедера */
+	margin: 0;
+	padding: 0;
+	font-size: 0;  /* борьба с пробелами в инлайн-блоках! */
+	list-style: none;
 }
 
-.main-navigation a:hover {
-  background: #242424;
+.main-navigation li {    /* Элементы списка меню хедера */
+	display: inline-block;
+	font-size: 16px;
+	line-height: 20px;
+	vertical-align: top;
 }
 
-.main-navigation .active {
-  position: relative;
-
-  background-color: none;
+.main-navigation a {    /* Ссылки в меню хедера */
+	display: block;
+	padding: 25px 20px;
+	text-decoration: none;
+	color: #fff;
 }
 
-.main-navigation .active a:hover {
-  background: none;
+.main-navigation a:hover {   /* Ссылки при наведении */
+	background: #242424;
+	cursor: pointer;
 }
 
-.main-navigation .active::after {
-  content: "";
-  position: absolute;
-  right: 20px;
-  bottom: 0;
-  left: 20px;
-
-  height: 5px;
-
-  background-color: #ffffff;
+.main-navigation .active a {  /* Активная ссылка меню хедера */
+	position: relative;
 }
 
-/* Вложенность 3, но при желании можно уменьшить */
-
-.main-navigation .active span {
-  display: block;
-  padding: 25px 20px;
+.main-navigation .active a:hover {  /* Активная ссылка меню хедера при наведении */
+	background: none;
+	cursor: default;
 }
 
-.main-navigation .logo-inner {
-  float: left;
-  width: 111px;
-  height: 20px;
-  padding-top: 22px;
+.main-navigation .active a:after {  /* Псевдоэлемент активной ссылки меню хедера */
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 20px;
+	right: 20px;
+	height: 5px;
+	background: white;
 }
 
-.main-navigation .logo-inner img{
-  width: 111px;
-  height: 24px;
+.login {                     /* Ссылка пользовательского блока */
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	padding: 25px 20px;
+	padding-left: 50px;
+	font-size: 16px;
+	line-height: 20px;
+	text-decoration: none;
+	color: #fff;
 }
 
-.main-navigation .logo-inner:hover {
-  background: none;
+.login:hover {             /* Ссылка пользовательского блока при наведении*/
+	background: #242424;
 }
 
-.user-block {
-  float: right;
-  max-width: 140px;
+.login:before {            /* Псевдоэлемент (картинка)ссылки пользовательского блока */
+	content: "";
+	position: absolute;
+	top: 28px;
+	left: 20px;
+	width: 18px;
+	height: 16px;
+	background: url("../img/icon_enter.png") no-repeat;
+	/*background-position: 0 -212px;*/
 }
 
-.login {
-  position: relative;
-
-  display: inline-block;
-  padding: 25px 20px;
-  padding-left: 50px;
-
-  font-size: 16px;
-  line-height: 20px;
-  vertical-align: top;
-  color: #ffffff;
-  text-decoration: none;
+.login:hover:before {											/* Псевдоэлемент (картинка)ссылки пользовательского блока при наведении */
+	background: url("../img/icon_enter2.png") no-repeat;
 }
 
-.login:hover {
-  background-color: #242424;
+/*-------------------------------------------------------------*/
+.logo {					/* Логотип */
+	width: 368px;
+	height: 152px;
+	margin: 0 auto;
+	margin-bottom: 77px;
 }
 
-.login::before {
-  content: "";
-  position: absolute;
-  top: 28px;
-  left: 20px;
-
-  width: 18px;
-  height: 18px;
-
-  background: transparent url("img/sprite.png") no-repeat;
-  background-position: -1px -15px;
-  opacity: 0.3;
+.logo img {				/* Логотип (картинка) */
+	width: 368px;
+	height: 152px;
 }
 
-.login:hover::before {
-  opacity: 1;
+.slogan {				/* Слоган (из 3 колонок) */
+	margin-bottom: 80px;
 }
 
-.index-logo {
-  width: 368px;
-  height: 204px;
-  margin: 0 auto;
-  margin-bottom: 25px;
+.slogan-item {			/* Колонки слогана */
+	float: left;
+	width: 300px;
+	margin-right: 20px;
+	text-align: center;
 }
 
-.index-logo img {
-  width: 368px;
-  height: 204px;
+.slogan-item:last-child {		/* Последняя колонка слогана */
+	margin-right: 0;
 }
 
-.features {
-  margin-bottom: 80px;
+.slogan-title {					/* Заголовки слоганов */
+	position: relative;
+	padding-bottom: 50px;
+	margin-bottom: 30px;
+	font-size: 30px;
+	line-height: 42px;
 }
 
-.features-item {
-  float: left;
-  width: 300px;
-  margin-right: 20px;
-
-  text-align: center;
+.slogan-item p {					/* Текст слоганов */
+	margin: 10px;
 }
 
-.features-item:last-child {
-  margin-right: 0;
+.slogan-title:after {			/* Псевдоэлемент после заголовка слоганов */
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	display: block;
+	width: 20px;
+	height: 20px;
+	margin-left: -10px;
+	background: #fff;
+	transform: rotate(45deg);
 }
 
-.features-name {
-  position: relative;
-
-  display: block;
-  margin-bottom: 30px;
-  padding-bottom: 35px;
-
-  font-size: 30px;
-  line-height: 42px;
+.index-content {						/* Белые окошки */
+	margin-bottom: 35px;
+	padding: 50px 80px;
+	color: #000;
+	background:
+				url("../img/vert_line.png") no-repeat center,
+				#f8f5f2 url("../img/block_bg.jpeg");
 }
 
-.features-item p {
-  margin: 10px;
-  margin-bottom: 0;
+.index-content-column-left {			/* Левая колонка окошка */
+	width: 350px;
 }
 
-.features-name::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-
-  display: block;
-  width: 20px;
-  height: 20px;
-  margin-left: -10px;
-
-  background-color: #ffffff;
-  transform: rotate(45deg);
+.index-content-column-right {			/* Правая колонка окошка */
+	width: 300px;
 }
 
-.index-content {
-  margin-bottom: 35px;
-  padding: 50px 80px;
-
-  color: #000000;
-
-  background: url("img/index-content-shadow.png") no-repeat center,
-  #f8f5f2 url("img/pattern-white.jpg");
+.index-content-column-left {			/* Левая колонка окошка */
+	float: left;
 }
 
-.index-content-left {
-  float: left;
-  width: 380px;
+.index-content-column-right {			/* Правая колонка окошка */
+	float: right;
 }
 
-.index-content-right {
-  float: right;
-  width: 300px;
+.index-content-column-title {			/* Заголовок колонки */
+	margin: 0;
+	margin-bottom: 35px;
+	font-size: 30px;
+	line-height: 42px;
 }
 
-.index-content-title {
-  margin: 0;
-  margin-bottom: 25px;
-
-  font-size: 30px;
-  line-height: 42px;
+.news {							/* Блок новостей в левой колонке */
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
-.index-content p {
-  margin: 0;
-  margin-bottom: 25px;
+.news li {						/* Элементы блока новостей */
+	margin-bottom: 25px;
 }
 
-.news-preview {
-  margin: 0;
-  padding: 0;
-  padding-right: 35px;
-
-  list-style: none;
+.news time {						/* Дата в блоке новостей */
+	text-transform: none;
+	font-weight: normal;
 }
 
-.news-preview li {
-  margin-bottom: 25px;
+.news a {
+	text-decoration: none;
+	color: #000;
 }
 
-.news-preview p {
-  margin-bottom: 0;
-}
-
-.news-preview time {
-  text-transform: none;
-}
-
-.btn {
-  display: inline-block;
-  margin-right: 16px;
-  padding: 10px 33px;
-
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 24px;
-  font-family: "PT Sans Narrow", "Arial", sans-serif;
-  vertical-align: top;
-  text-align: center;
-  color: #ffffff;
-  text-transform: uppercase;
-  text-decoration: none;
-
-  background-color: #000000;
-  border: none;
-  outline: none;
-  cursor: pointer;
+.btn {							/* Класс .BTN кнопок */
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 33px;
+	margin-right: 16px;
+	font-size: 14px;
+	font-family: "PT Sans Narrow", sans-serif;
+	font-weight: 700;
+	line-height: 24px;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fff;
+	background: #000;
+	border: none;
+	outline: none;
+	cursor: pointer;
 }
 
 .btn:hover,
-.btn:active {
-  background-color: #663d15;
+.btn:active {					/* Поведение кнопок по наведению и нажатию */
+	background: #663d15;
 }
 
-.btn.disabled,
-.btn:disabled {
-  cursor: default;
-  opacity: 0.5;
+.btn:disabled {					/* ПОведение неактивных (отключенных) кнопок */
+	cursor: default;
+	opacity: .5;
 }
 
-.btn.disabled:hover,
-.btn:disabled:hover {
-  background-color: #000000;
+.btn:disabled:hover {			/* Поведение неактивных кнопок при наведении */
+	background: #000;
 }
 
-.gallery-content {
-  margin: 0;
+.main-contacts .btn {
+	padding-right: 20px;
+	padding-left: 20px;
 }
 
-.gallery-content img {
-  width: 143px;
-  height: 82px;
-  margin-right: 5px;
+.main-contacts .btn:last-child {
+	margin-right: 0;
 }
 
-.gallery-live {
-  position: relative;
-
-  height: 260px;
+.gallery{						/* Блок галареи в правой колонке */
+	position: relative;
+	height: 260px;
 }
 
-.gallery-live .gallery-content {
-  height: 164px;
-  margin: 0;
-
-  background-color: #cccccc;
-  border: 7px solid #ffffff;
+.gallery-image {					/*  */
+	height: 164px;
+	margin: 0;
+	border: 7px solid white;
+	background: #ccc;
 }
 
-.gallery-live .gallery-content a {
-  position: absolute;
-  top: 7px;
-  left: 7px;
+.gallery-image img {				/* Изображение в блоке галереи */
+	width: 286px;
+	height: 164px;
 }
 
-.gallery-live .gallery-content img {
-  width: 286px;
-  height: 164px;
+.gallery .btn {					/* Кнопки в блоке галереи */
+	position: absolute;
+	bottom: 0;
+	width: 140px;
+	margin: 0;
 }
 
-.gallery-live .btn {
-  position: absolute;
-  bottom: 0;
-
-  width: 140px;
-  margin: 0;
+.gallery-prev {					/* Кнопка НАЗАД в блоке галереи */
+	left: 0;
 }
 
-.gallery-live .gallery-prev {
-  left: 0;
+.gallery-next {					/* Кнопка ВПЕРЕД в блоке галереи */
+	right: 0;
 }
 
-.gallery-live .gallery-next {
-  right: 0;
+.content p {						/* Абзац в левой колонке второго белого окошка */
+	margin: 0;
+	margin-bottom: 25px;
 }
 
-.appointment-form input {
-  float: left;
-  width: 106px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  padding: 7px 15px;
-
-  font-size: 14px;
-  line-height: 24px;
-  font-family: "PT Sans Narrow", "Arial", sans-serif;
-  color: #000000;
-  text-transform: uppercase;
-
-  background-color: #f9f6f3;
-  border: 2px solid #000000;
-  outline: none;
+.form  input {						/* Форма в правой колонке второго окошка */
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	width: 106px;
+	padding: 10px 15px;
+	border: 2px solid #000;
+	font-family: "PT Sans Narrow", sans-serif;
+	font-size: 14px;
+	line-height: 24px;
+	text-transform: uppercase;
+	color: #000;
+	background: #f9f6f3;
+	outline: none;
 }
 
-.appointment-form input:focus {
-  border: 2px solid #663d15;
+.form  input:focus {					/* Поля ввода формы при фокусе на них */
+	border: 2px solid #663d15;
 }
 
-.appointment-form input:nth-child(2n) {
-  margin-right: 0;
+.form  input:nth-child(even) {			/* Четные поля ввода формы */
+	margin-right: 0;
 }
 
-.appointment-form .btn {
-  clear: both;
-  width: 100%;
+.form .btn {							/* Кнопки формы */
+	clear: both;
+	width: 100%;
 }
 
-/* Стили внутренних страниц */
+/* Пагинатор Хлебные крошки (внутренние странички) -----------------*/
+.bread_crumbs {								/* Пагинатор Хлебные крошки */
+	max-width: 700px;
+	margin: 0;
+	margin-bottom: 35px;
+}
+
+.bread_crumbs ul {   /* Список меню пагинатора */
+	margin: 0;
+	padding: 0;
+	font-size: 0;  /* борьба с пробелами в инлайн-блоках! */
+	list-style: none;
+}
+
+.bread_crumbs li {    /* Элементы списка меню пагинатора */
+	display: inline;			/* inline-block  не нужен! */
+	font-size: 14px;
+	line-height: 20px;
+	vertical-align: top;
+}
+
+.bread_crumbs a {    /* Ссылки в меню пагинатора */  
+	padding: 10px 0px;
+	padding-right: 40px;
+
+	position: relative;
+	text-decoration: none;
+	color: #000;
+}
+
+.bread_crumbs li.active a:after {		/* Скрыть псевдоэлемент активной ссылки пагинатора (как вариант) */
+	display: none;
+}
+
+.bread_crumbs a:after {		/* Псевдолементы ссылок пагинатора. */
+	content: "";
+	display: block;
+	position: absolute;
+	top: 15px;
+	right: 15px;    				
+	width: 8px;
+	height: 8px;
+	background-color: #000;
+	transform: rotate(45deg);
+}
+
+.bread_crumbs a:hover:after {			/* При наведении на псевдоэлемент курсор "не сигналит" о ссылке */
+	cursor: default;
+}
+
+.bread_crumbs a:hover {   /* Ссылки пагинатора при наведении */
+	cursor: pointer;
+}
+
+.bread_crumbs .active a {  /* Активная ссылка меню пагинатора */
+	position: relative;
+	color: #aba9a7;	
+	cursor: default;
+	pointer-events: none;	/* Отменяем события по клику */	
+}
+
+.bread_crumbs .active a:hover {  /* Активная ссылка меню пагинатора при наведении */
+	background: none;
+	cursor: default;
+}
+
+/* Стили странички "Магазин" (shop) -----------------------------*/
+.shop .main-header {
+	margin-bottom: 54px;
+}
+
+.shop h1 {
+	margin-top: 0;
+	margin-bottom: 23px;
+}
+
+.shop .bread_crumbs {
+	margin-bottom: 54px;
+}
+
+.shop .bread_crumbs .active {
+	color: #aba9a7;
+	pointer-events: none;	/* Отменяем события по клику */	
+}
+
+.shop .bread_crumbs .active:after {
+	display: none;
+}
+
+.shop .left-part-form {
+	width: 190px;
+	float: left;
+}
+
+.shop .group-inputs {
+	border: none;
+	margin: 0;
+	padding: 0;
+	padding-top: 32px;
+	font-size: 24px;
+	line-height: 30px;
+}
+
+.shop .group-inputs:nth-of-type(2) {
+	margin-top: 55px;
+}
+
+.shop .left-part-form input[type="radio"] {		/* Истинные радиокнопки */
+	display: none;
+}
+
+.shop .left-part-form input[type="radio"] + label {		/* Лейбл после радиокнопки */
+	display: inline-block;
+	vertical-align: middle;
+	font-family: 'PT Sans Narrow', Arial, sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: #000;
+	margin-left: 44px;
+	cursor: pointer;
+	margin-bottom: 23px;
+	position: relative;
+}
+
+.shop .left-part-form input[type="radio"] + label::before {	/* Псевдоэлемент лейбла, стоящего после радиокнопки */
+	content: "";
+	vertical-align: middle;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	left: -44px;
+	top: 0;
+	background-color: #fff;
+	border-radius: 50%;
+	border: 2px solid #000;
+}
+
+.shop .left-part-form input[type="radio"]:checked + label::before {	/* Псевдоэлемент лейбла, стоящего после  УСТАНОВЛЕННОЙ радиокнопки */
+	content: "";
+	position: absolute;
+	left: -42px;
+	top: 2px;
+	width: 8px;
+	height: 8px;
+	background-color: #000;
+	border-radius: 50%;
+	border: 5px solid #fff;
+	box-shadow: 0 0 0 2px rgba(0,0,0,1);
+}
+
+.shop .left-part-form input[type="checkbox"] {		/* Истинный чекбокс */
+	display: none;
+}
+
+.shop .left-part-form input[type="checkbox"] + label {	/* Лейбл после чекбокса */
+	display: inline-block;
+	vertical-align: middle;
+	font-family: 'PT Sans Narrow', Arial, sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: #000;
+	margin-left: 44px;
+	position: relative;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+
+.shop .left-part-form input[type="checkbox"]:last-of-type + label, 
+.shop .left-part-form input[type="checkbox"]:checked:last-of-type + label {		/* Лейбл, стоящий после последнего чекбокса */
+	margin-bottom: 0;	
+}
+
+.shop .left-part-form input[type="radio"]:last-of-type + label,
+.shop .left-part-form input[type="radio"]:last-of-type:checked + label {		/* Лейбл, стоящий после последней радиокнопки */
+	margin-bottom: 0;
+}
+
+.shop .left-part-form input[type="checkbox"] + label::before {		/* Псевдоэлемент лейбла, стоящего после чекбокса */
+	content: "";
+	vertical-align: middle;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	left: -44px;
+	top: 0px;
+	border: 2px solid #000;
+}
+
+.shop .left-part-form input[type="checkbox"]:checked + label::before {	/* Псевдоэлемент лейбла, стоящего после УСТАНОВЛЕННОГО чекбокса */
+	content: "";
+	position: absolute;
+	left: -42px;
+	top: 2px;
+	width: 12px;
+	height: 12px;
+	background: url("../img/check_on.png") no-repeat center;
+	border: 2px solid #fff;
+	box-shadow: 0 0 0 2px rgba(0,0,0,1);
+}
+
+.shop .left-part-form .btn {
+	margin-right: 0;
+	margin-top: 30px;
+}
+
+.shop  .right-part-items .buy {					/* Кнопка в Форме */
+    display: inline-block;
+	width: 78px;
+    margin-right: 0;
+	vertical-align: top;
+	padding-top: 14px;
+	padding-bottom: 15px;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fff;
+	background: #000;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.shop  .right-part-items .buy:hover, .shop  .right-part-items .buy:active {			/* Кнопка в форме при нажатии и наведении */
+	background-color: #663d15;
+}
+
+.shop .price  {
+	width: 109px;
+	padding: 15px 0;
+	padding-top: 14px;
+	margin-left: 16px;
+	font-size: 14px;
+	line-height: 18px;
+	margin-bottom: 16px;
+}
+
+.left-part-form .btn:hover, .left-part-form .btn:active {			/* Кнопка в форме при нажатии и наведении */
+	background-color: #663d15;
+}
+
+/* События элементов формы при НАВЕДЕНИИ */
+.left-part-form input[type="radio"] + label:hover, 						/* при наведении на лейблы */
+.left-part-form input[type="radio"]:checked + label:hover, 
+.left-part-form input[type="checkbox"] + label:hover,
+.left-part-form input[type="checkbox"]:checked + label:hover {
+	color: #663d15;
+}
+
+.left-part-form input[type="radio"] + label:hover::before, 				/* при наведении на "псевдо" радиобаттоны и чекбоксы */
+.left-part-form input[type="radio"]:checked + label:hover::before, 
+.left-part-form input[type="checkbox"] + label:hover::before,
+.left-part-form input[type="checkbox"]:checked + label:hover::before {	
+	color: #000; 
+}
+
+/* События элементов формы при БЛОКИРОВКЕ */
+.left-part-form input[type="radio"]:disabled + label,					/* лейблы при блокировке input[] */
+.left-part-form input[type="radio"]:checked:disabled + label, 
+.left-part-form input[type="checkbox"]:disabled + label,
+.left-part-form input[type="checkbox"]:checked:disabled + label {
+	color: #adaba9;
+}
+
+.left-part-form input[type="radio"]:disabled + label::before,			/* "псевдо-" радиобаттоны и чекбоксы при блокировке */
+.left-part-form input[type="radio"]:checked:disabled + label::before, 
+.left-part-form input[type="checkbox"]:disabled + label::before,
+.left-part-form input[type="checkbox"]:checked:disabled + label::before {
+	opacity:0.3;
+}
+.shop .right-part-items {
+	float: right;
+	width: 700px;
+}
+
+.shop .product-group {
+	width: 700px;
+	font-size: 0;
+}
+
+.shop .card {
+	color: #000;
+	display: block;
+	text-decoration: none;
+}
+
+.shop .product-item {
+	float: left;
+	background-color: #fff;
+	box-shadow: 0 0 15px rgba(0,0,0,.2);
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.shop .product-item:active {
+	box-shadow: 5px 5px 25px rgba(0,0,0,.3);
+}
+
+.shop .product-item img {
+	margin-bottom: 15px;
+}
+
+.shop .product-item  h2 {
+	font-size: 14px;
+	line-height: 18px;
+	margin-top: 0;
+	margin-bottom: 15px;
+	margin-left: 16px;
+	text-transform: none;
+}
+
+.shop .product-item  span {
+	text-transform: uppercase;
+}
+
+.shop .product-item:nth-of-type(3n) {
+	margin-right: 0;
+}
+
+.shop .main-footer {
+	margin-top: 49px;
+}
+
+/* Пагинатор (нумерация страниц) --------------------------------- */
+.paginator {
+	margin-top: 25px;
+}
+
+.paginator-list {
+	display: inline-block;
+    padding: 0;
+    margin: 0;
+	font-size: 0;
+	list-style:none;
+}
+
+.paginator-list li {
+	display: inline-block;
+	width: 43px;
+	height: 43px;
+	margin-right: 7px;
+	vertical-align: middle;
+	background-color: #000;
+}
+
+.paginator-list .btn {
+	padding: 0;
+}
+
+.paginator-list a {
+	color: #fff;
+    text-decoration: none;
+	font-size: 14px;
+	line-height: 43px;
+}
+
+.paginator-list .active a {
+	color: #000;
+}
+
+.paginator-list  li:last-child {
+	margin-right: 0;
+}
+
+.paginator-list .active {
+    background-color: #fff;
+	cursor: default;
+	pointer-events: none;	/* Отменяем события по клику */
+}
+
+.paginator-list :hover:not(.active) {			/* События при НАВЕДЕНИИ у всех НЕ активных ссылок Пагинатора */
+	background-color: #663d15;
+}
+
+.paginator-list .active a{
+	background: none;
+}
+
+.paginator-list :hover a {
+	background: none;
+}
+
+.paginator-list :active a {
+	background: none;
+}
+
+.paginator-list :active:not(.active) {
+	background-color: #663d15;
+}
+
+/* Стили странички "Страничка товара" (item) -----------------------------*/
+.item .main-header {
+	margin-bottom: 55px;
+}
+
+.item .main-container {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.item  h1 {
+	margin: 0;
+	margin-bottom: 21px;
+	font-size: 30px;
+	line-height: 42px;
+}
+
+.item .bread_crumbs {
+	margin-bottom: 55px;
+}
+
+.item .content-column-left {					/* Левый блок (картинки) */
+	width: 480px;
+	float: left;
+}
+
+.item .main_caption {							/* Большая картинка */
+	float: left;
+	padding-left: 0;
+}
+
+.item .content p {
+	margin-bottom: 21px;
+}
+
+.item .miniatures {
+	padding: 0;
+	margin: 0;
+}
+/*.caption a:active .main_caption img{					/ такое не  работает... /
+	background: url("img/-item/big_image.jpeg") no-repeat;
+}*/
+
+.main_caption img, .caption img {		/* Тень изображениям (большому и двум маленьким) */
+	box-shadow: 0 0 25px rgba(0,0,0,0.3);
+}
+
+.caption:last-child  img{		/* Тень изображению (последнему из маленьких) */
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+}
+
+.caption {
+	float: left;	
+	padding-right: 20px;
+	list-style-type: none;
+	margin: 0;
+}
+
+.caption:last-child {	
+	padding-right: 0;
+}
+
+.caption:last-child :after {
+	clear: both;
+}
+
+.item .content-column-right {					/* Правый блок (текстовый) */
+	width: 390px;
+	float: right;
+}
+
+.item .content-column-right .btn {
+	padding: 10px 18px;
+	margin-right: 0px;
+}
+
+.item .content-column-right a {
+	text-decoration: none;
+	color: #000;
+}
+
+.item .content-column-right .art {
+	color: #aeaeae;
+}
+
+.item .text_box p {
+	margin-top: 0;
+	margin-bottom: 38px;
+}
+
+.item .text_box h3 {
+	margin-top: 65px;
+	margin-bottom: 33px;
+}
+
+.item .content-column-right ul {			/* content-column-right заменить на класс list!.. */
+	margin: 0;
+    padding: 0;
+	list-style: none;
+	margin-top: 29px;
+	margin-left: 21px;
+}
+
+.item .content-column-right li {			/* и тут... */
+	position: relative;
+}
+
+.item .content-column-right li:before {		/* и тут... */  /* и где-то еще в 1 месте... */
+	content: "";
+	position: absolute;
+	top: 7px;
+	left: -18px;    				/* Хотя по идее 21рх... */
+	width: 8px;
+	height: 8px;
+	background-color: #000;
+	transform: rotate(45deg);	
+}
+ 
+.price {
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 41px;
+	margin-right: -3px;
+	font-size: 14px;
+	font-family: "PT Sans Narrow", sans-serif;
+	font-weight: 700;
+	line-height: 24px;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	border: none;
+	outline: none;
+	cursor: default;
+	color: #000;
+	background-color: #e5e5e5;
+}
+
+.footnotes {
+	margin-top: 21px;
+	margin-bottom: 33px;
+}
+
+.availability {
+	float: left;
+}
+
+.art {
+	float: right;
+	padding-right: 12px;
+}
+
+/* Стили странички Прайс (inner-page) ------------------------------------------------- */
+.inner_page .main-header {
+	margin-bottom: 55px;
+}
+
+.inner_page .main-container {
+	margin-bottom: 79px;
+}
+
+.shop .main-navigation li:first-of-type  a, .inner_page .main-navigation li:first-of-type  a, .item .main-navigation li:first-of-type  a {
+	padding: 21px 20px;
+}
 
 .inner-page-title {
-  margin-bottom: 55px;
+	margin-bottom: 57px; /*можно и 55рх*/
 }
 
 .inner-page-title h1 {
-  margin: 0;
-  margin-bottom: 20px;
-  padding: 0;
-
-  font-size: 30px;
-  line-height: 42px;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 19px;
+	font-size: 30px;
+	line-height: 42px;
 }
-
-.breadcrumbs {
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
-}
-
-.breadcrumbs li {
-  position: relative;
-
-  display: inline;
-  padding-right: 40px;
-}
-
-.breadcrumbs li::after {
-  content: "";
-  position: absolute;
-  top: 6px;
-  right: 15px;
-
-  width: 8px;
-  height: 8px;
-
-  background-color: #000000;
-  transform: rotate(45deg);
-}
-
-.breadcrumbs a {
-  color: #000000;
-  text-decoration: none;
-}
-
-.breadcrumbs a:hover {
-  text-decoration: underline;
-}
-
-.breadcrumbs .current {
-  color: #aba9a7;
-}
-
-.breadcrumbs .current::after {
-  display: none;
-}
-
-/* Общие стили для контентных тегов */
 
 .inner-content {
-  margin-bottom: 75px;
+	margin-bottom: 79px;
 }
 
 .inner-content h2 {
-  margin-top: 60px;
-  margin-bottom: 30px;
-
-  font-size: 24px;
-  line-height: 30px;
+	margin-top: 60px;
+	margin-bottom: 32px;
+	font-size: 24px;
+	line-height: 30px;
 }
 
 .inner-content p {
-  margin: 14px 0;
+	margin: 14px 0;
 }
 
 .inner-content table {
-  border-collapse: collapse;
+	border-collapse: collapse;
 }
 
 .inner-content td {
-  padding: 10px 15px;
-
-  border: 2px solid #000000;
+	padding: 10px 15px;
+	border: 2px solid black;
 }
 
-/* Особые стили для контентных тегов */
-
-.big-heading {
-  margin-top: 55px;
-  margin-bottom: 65px;
-
-  text-align: center;
+.big-header {
+	margin-top: 57px;
+	margin-bottom: 58px;  
+	text-align: center;
 }
 
-.big-heading h2 {
-  position: relative;
-  z-index: 2;
-
-  display: inline;
-  margin: 0;
-  padding: 0 25px;
-
-  font-size: 48px;
-  line-height: 48px;
-  text-align: center;
-
-  background: #f8f3f0 url("img/pattern-white.jpg") repeat;
+.big-header h2 {
+	position: relative;
+	display: inline;
+	margin: 0;
+	padding: 0 25px;  
+	font-size: 48px;
+	line-height: 48px;
+	text-align: center;
+	background: #f8f5f2 url("../img/block_bg.jpeg") repeat;
 }
 
-.big-heading::after {
-  content: "";
-  position: relative;
-  top: -25px;
-  z-index: 1;
-
-  display: block;
-
-  border-bottom: 2px solid #000000;
+.big-header:after {
+	content: ""; 
+	position: relative;
+	top: -25px;
+	z-index: -1;  
+	display: block;
+	border-bottom: 2px solid black;
+}
+.list-1 {
+	margin: 14px 0;
+	padding: 0;
+	list-style: none;
 }
 
-.custom-list-1 {
-  margin: 14px 0;
-  padding: 0;
-
-  list-style: none;
+.list-1 li {
+	position: relative;
+	margin-bottom: 15px;
+	padding-left: 20px;
 }
 
-.custom-list-1 li {
-  position: relative;
-
-  margin-bottom: 15px;
-  padding-left: 20px;
-}
-
-.custom-list-1 li::before {
-  content: "";
-  position: absolute;
-  top: 8px;
-  left: 0;
-
-  width: 8px;
-  height: 8px;
-
-  background-color: #000000;
-  transform: rotate(45deg);
+.list-1 li:before {
+	content: "";
+	position: absolute;
+	top: 8px;
+	left: 0;
+	width: 8px;
+	height: 8px;  
+	background: #000;
+	transform: rotate(45deg);
 }
 
 .prices-table {
-  width: 100%;
+	width: 100%;
 }
 
 .prices-table td {
-  width: 50%;
+    width: 50%;
 }
 
 .prices-table td:last-child {
-  text-align: center;
+	text-align: center;
 }
 
 .short-text {
-  padding-right: 80px;
+	padding-right: 80px;
 }
 
 /* Колонки для контента */
-
-.inner-columns {
-  margin: 60px 0;
+.inner-content-columns {
+    margin: 60px 0;
+	margin-bottom: 63px;
 }
 
-.inner-column-left,
-.inner-column-right {
-  width: 460px;
+.inner-content-column-left,
+.inner-content-column-right {
+	width: 460px;
 }
 
-.inner-column-left {
-  float: left;
+.inner-content-column-left {
+	float: left;
 }
 
-.inner-column-right {
-  float: right;
+.inner-content-column-right {
+	float: right;
 }
 
-.inner-column-left *:first-child,
-.inner-column-right *:first-child {
-  margin-top: 0;
+.inner-content-column-left *:first-child,
+.inner-content-column-right *:first-child {
+	margin-top: 0;
+}
+.inner-content-column-left *:last-child,
+.inner-content-column-right *:last-child {
+	margin-bottom: 0;
 }
 
-.inner-column-left *:last-child,
-.inner-column-right *:last-child {
-  margin-bottom: 0;
+/* Футер -------------------------------------------------------*/
+.main-footer {						/* Футер */
+	margin-top: 60px;
+	padding-top: 60px;
+	padding-bottom: 40px;
+	background: #252525 url("../img/footer_bg.jpeg");
 }
 
-.main-footer {
-  margin-top: 65px;
-  padding-top: 60px;
-  padding-bottom: 40px;
-
-  color: #ffffff; /* лучше явно прописать везде для футера */
-
-  background: #252525 url("img/pattern-black.jpg");
+.footer-contacts {					/* Блок контактов в футере */
+	float: left;
+	width: 320px;
+	margin-right: 80px;
 }
 
-.footer-contacts {
-  float: left;
-  width: 320px;
-  margin-right: 60px;
+.footer-contacts a {					/* Ссылки блока контактов футера ???*/
+	color: #fff;
 }
 
-.footer-contacts a {
-  color: #ffffff;
+.footer-social {						/* Блок социальных сетей футера */
+	float: left;
+	text-align: center;
 }
 
-.footer-contacts a:hover {
-  text-decoration: none;
+.footer-copyright {					/* Блок копирайта футера */
+	float: right;
+	max-width: 320px;
 }
 
-.footer-social {
-  float: left;
-  width: 180px;
-
-  text-align: center;
+.footer-contacts a:hover {			/* Ссылки блока контактов футера при наведении */
+	text-decoration: none;
 }
 
-.footer-copyright {
-  float: right;
-  max-width: 180px;
+.footer-social p {					/* Абзац блока соцсетей футера */
+	margin: 0;
+	margin-bottom: 15px;
 }
 
-.footer-social p {
-  margin: 0;
-  margin-bottom: 15px;
+.social-btn {						/* Социальные кнопки в футере */
+	margin: 0 2px;
+	display: inline-block;
+	vertical-align: top;
+	width: 43px;
+	height: 43px;
+	font-size: 0;
+	text-decoration: none;
+	background: #000 url("../img/sprite.png") no-repeat center;								/* Подключить спрайт и далее расставить координаты картинок! */
 }
 
-.social-btn {
-  display: inline-block;
-  width: 43px;
-  height: 43px;
-  margin: 0 2px;
-
-  font-size: 0;
-  vertical-align: top;
-  text-decoration: none;
-
-  background: #000000 url("img/sprite.png") no-repeat center;
+.social-btn:hover {						/* Социальные кнопки в футере при наведении */
+	background-color: #fff;
 }
 
-.social-btn:hover {
-  background-color: #ffffff;
+.social-btn-vk {						/* Социальная кнопка ВК футера */
+	background: #000 url("../img/icon_vk.png") no-repeat center;
+	/*background-position: 9px -968px;*/
 }
 
-.social-btn-vk {
-  background-position: 9px -447px;
+.social-btn-fb {						/* Социальная кнопка FB футера */
+	background: #000 url("../img/icon_fb.png") no-repeat center;
 }
 
-.social-btn-fb {
-  background-position: 15px -171px;
+.social-btn-inst {						/* Социальная кнопка INST футера */
+	background: #000 url("../img/icon_inst.png") no-repeat center;
 }
 
-.social-btn-inst {
-  background-position: 12px -313px;
+.social-btn-vk:hover {						/* Социальная кнопка ВК футера при наведении */
+	background: #fff url("../img/icon_vk_b.png") no-repeat center;
 }
 
-.social-btn-vk:hover {
-  background-position: 9px -381px;
+.social-btn-fb:hover {						/* Социальная кнопка FB футера при наведении */
+	background: #fff url("../img/icon_fb_b.png") no-repeat center;
 }
 
-.social-btn-fb:hover {
-  background-position: 15px -100px;
+.social-btn-inst:hover {						/* Социальная кнопка INST футера при наведении */
+	background: #fff url("../img/icon_inst_b.png") no-repeat center;
 }
 
-.social-btn-inst:hover {
-  background-position: 12px -242px;
+.footer-copyright p {					/* Абзац блока копирайта футера */
+	margin: 0;
+	margin-bottom: 15px;
+	text-align: center;
 }
 
-.footer-copyright p {
-  margin: 0;
-  margin-bottom: 15px;
-
-  text-align: center;
+.footer-copyright .btn {					/* Кнопки блока копирайта футера */
+	margin-right: 0;
 }
 
-.footer-copyright .btn {
-  margin-right: 0;
+.footer-copyright .btn:hover {					/* Кнопки блока копирайта футера при наведении*/
+	color: #000;
+	background: #fff;
 }
 
-.footer-copyright .btn:hover {
-  color: #000000;
-
-  background-color: #ffffff;
+/* Модальное окно Вход ------------------------------------------ */
+.blind {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	opacity: 0.5;
+	background-color: black;
+	z-index: 1;
 }
 
-/* Всплывающая форма */
+.modal-window {
+	display: none;		/* display: none; */
+	position: fixed;
+	top: 0;
+	left: 50%;
+	margin-top: 120px;
+	margin-left: -230px;
+	width: 300px;
+	padding: 50px 80px;
+	padding-bottom: 58px;
+	background: #f8f5f2 url("../img/block_bg.jpeg") repeat;
+	color: #000;
+	box-shadow: 0 30px 50px rgba(0,0,0,.75);
+	
+	z-index: 10;
+	opacity: 1;
+}
 
-.modal-content {
-  position: absolute;
-  top: 120px;
-  left: 50%;
+.modal-window-close {		/* Кнопка Закрыть формы входа */
+	position: absolute;
+	top: 9px;
+	right: -34px;
+	width: 21px;
+	height: 21px;
+	background: url("../img/close_window.png") no-repeat center;
+	font-size: 0;
+	cursor: pointer;
+}
 
-  display: none;
-  width: 300px;
-  margin-left: -230px;
-  padding: 50px 80px;
+.modal-window h2 {			/* Заголовок */
+	margin: 0;
+	margin-bottom: 20px;
+	font-size: 30px;
+	line-height: 42px;
+}
 
-  color: #000000;
+.modal-window p {			/* Абзац */
+	margin: 0;
+	margin-bottom: 15px;
+}
 
-  background: #f8f3f0 url("img/pattern-white.jpg");
-  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7);
+.modal-window .login-form {		/* Форма */
+	
+}
+
+.login-form input[type="text"], .login-form input[type="password"] {	/* Поля формы входа (логин и пароль) */
+	width: 241px;
+	margin: 0;
+	margin-bottom: 9px;
+	padding: 12px 40px 12px 10px;
+	font-size: 14px;
+	line-height: 24px;
+	font-family: "PT Sans Narrow", sans-serif;
+	text-transform: uppercase;
+	color: #000;
+	border: 2px solid #000101;
+	outline: none;
+	background: #f9f6f3;
+}
+
+.login-form input:focus {				/* Фокус в поле ввода */
+	border-color: #663d15;
+}
+
+.login-form input.icon-user {			/* Иконка в поле Логин */
+	background: url("../img/icon_login.png") no-repeat right 14px center;
+}
+
+.login-form input.icon-password {		/* Иконка в поле Пароль */
+	background: url("../img/icon_pass.png") no-repeat right 14px center;
+}
+
+.login-form .restore {				/* Ссылка "Я забыл пароль" */
+	float:right;
+	color: #000;
+}
+
+.login-form .btn {					/* Кнопка формы */
+	width: 100%;
+	margin-top: 17px;
+}
+
+.login-form input[type="checkbox"] {	/* Чекбокс */
+	display: none;
+}
+
+.login-form input[type="checkbox"] + label{		/* Лейбл, привязанный к чекбоксу */
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	padding-left: 32px;
+	cursor: pointer;
+}
+
+.login-form input[type="checkbox"] + label:hover {		/* Лейбл при наведении */
+	color: #663d15;
+}
+
+.login-form input[type="checkbox"] + label:before {		/* Псевдоэлемент лейбла */
+	content: "";
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: 17px;
+	height: 17px;
+	border: 2px solid #000;
+}
+
+.login-form input[type="checkbox"]:checked + label:before {		/* Псевдоэлемент при нажатом чекбоксе */
+	background: url("../img/close_btn.png") no-repeat center;
 }
 
 .modal-content-map {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-
-  display: none;
-  width: 766px;
-  height: 561px;
-  margin-top: -280px;
-  margin-left: -390px;
-
-  background: #e9e5dc url("img/map.png");
-  border: 7px solid white;
-  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7);
+	display: none;		/* display: none; */
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-top: 578px;
+	margin-left: -390px;
+	width: 766px;
+	height: 560px;
+	padding: 7px;
+	background-color: #fff;
+	color: #000;
+	box-shadow: 0 30px 50px rgba(0,0,0,.75);
 }
 
-.modal-content-close {
-  position: absolute;
-  top: 0;
-  right: -34px;
-
-  width: 22px;
-  height: 22px;
-
-  font-size: 0;
-
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-  cursor: pointer;
+.modal-content-close {		/* Кнопка Закрыть формы входа */
+	position: absolute;
+	top: 7px;
+	right: -32px;
+	width: 21px;
+	height: 21px;
+	background: url("../img/close_window.png") no-repeat center;
+	font-size: 0;
+	cursor: pointer;
+	
 }
 
-.modal-content-close::before,
-.modal-content-close::after {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 2px;
-
-  width: 19px;
-  height: 3px;
-  background-color: #d0d0d0;
-  border-radius: 1px;
+@keyframes show {			/* Кадры анимации открытия Модального окна */
+  0% {
+    opacity: 0.2;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.modal-content-close::before {
-  transform: rotate(45deg);
+.modal-show {		/* Отображение модального окна */
+	display: block;
+	animation: show 1s;
 }
 
-.modal-content-close::after {
-  transform: rotate(-45deg);
+.blind-show {		/* Отображение затемнения окна */
+	display: block;
 }
 
-.modal-content h2 {
-  margin: 0;
-  margin-bottom: 20px;
-
-  font-size: 30px;
-  line-height: 42px;
+@keyframes close {			/* Кадры анимации закрытия Модального окна */
+	0% {
+		transform: scale(1);
+		opacity: 1;		
+	}
+	60% {
+		transform: scale(0.9);	
+        opacity: 1;	
+	}
+	80% {
+		transform: scale(1.1);
+	}	
+	100% {
+		transform: scale(0);
+		opacity: 0;	
+	}		
 }
 
-.modal-content p {
-  margin: 0;
-  margin-bottom: 14px;
+.modal-close{						/* Закрытие модального окна */
+	animation: close .5s ease-in-out;
 }
 
-.modal-content .login-form {
-  margin-top: 30px;
-  margin-bottom: 10px;
+@keyframes error {			/* Кадры анимации ошибки Модального окна Вход */
+  0% {
+	opacity: 1;
+  }
+  50% {
+	box-shadow:  0 0 20px 30px rgba(255,0,0,0.7),
+				inset 0 0 10px 10px rgba(255,0,0,0.7);
+	opacity: 0.9;
+  }
+  100% {
+	opacity: 1;
+  }
 }
 
-.login-form input[type="text"],
-.login-form input[type="password"] {
-  width: 236px;
-  margin: 0;
-  margin-bottom: 10px;
-  padding: 10px 20px;
-  padding-right: 40px;
-
-  font-size: 14px;
-  line-height: 24px;
-  font-family: "PT Sans Narrow", "Arial", sans-serif;
-  color: #000000;
-  text-transform: uppercase;
-
-  background-color: #f9f6f3;
-  border: 2px solid #000000;
-  outline: none;
+.modal-error {		/* Ошибка входа (не хватает логина и/или пароля) */
+	animation: error 2s;
 }
 
-.login-form input:focus {
-  border-color: #663d15;
+/*.modal-show-sec {			/* Альтернативное отображение модального окна */
+	/*display: block;
+	animation: modal-show-sec .5s ease-in-out;		
 }
 
-.login-form input.icon-user {
-  background-image: url("img/sprite.png");
-  background-repeat: no-repeat;
-  background-position: 100% -504px;
+@keyframes modal-show-sec {		/* Кадры альтернативной анимации открытия Модального окна */
+	/*0% {
+		transform: scale(0);
+		opacity: 0.0;		
+	}
+	60% {
+		transform: scale(1.1);	
+	}
+	80% {
+		transform: scale(0.9);
+		opacity: 1;	
+	}	
+	100% {
+		transform: scale(1);
+		opacity: 1;	
+	}		
+}*/
+
+.modal-container {
+	background: #aba9a7 url("../img/map_static.jpg") no-repeat center;
+	width: 100%; /*766px;*/
+	height: 100%; /*560px;*/
+	z-index: 1;
 }
 
-.login-form input.icon-password {
-  background-image: url("img/sprite.png");
-  background-repeat: no-repeat;
-  background-position: 100% -45px;
-}
-
-.login-form .restore {
-  float: right;
-
-  color: #000000;
-}
-
-.login-form .btn {
-  width: 100%;
-  margin-top: 15px;
-}
-
-.login-checkbox input[type="checkbox"] {
-  display: none;
-}
-
-.login-checkbox {
-  position: relative;
-
-  padding-left: 30px;
-
-  cursor: pointer;
-}
-
-.login-checkbox:hover {
-  color: #663d15;
-}
-
-.login-checkbox input[type="checkbox"] + .checkbox-indicator {
-  position: absolute;
-  top: -3px;
-  left: 0;
-
-  width: 17px;
-  height: 17px;
-
-  border: 2px solid #000000;
-}
-
-.login-checkbox input[type="checkbox"]:checked + .checkbox-indicator::before,
-.login-checkbox input[type="checkbox"]:checked + .checkbox-indicator::after {
-  content: "";
-  position: absolute;
-  top: 8px;
-  left: 1px;
-
-  width: 15px;
-  height: 2px;
-
-  background-color: #000000;
-}
-
-.login-checkbox input[type="checkbox"]:checked + .checkbox-indicator::before {
-  transform: rotate(45deg);
-}
-
-.login-checkbox input[type="checkbox"]:checked + .checkbox-indicator::after {
-  transform: rotate(-45deg);
-}
-
-.inner-content .login-form {
-  width: 300px;
-  margin: 0 auto;
+.map-image {
+	z-index: 2;
 }
